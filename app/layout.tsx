@@ -17,12 +17,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="flex flex-col min-h-screen">
+      <body className="flex flex-col min-h-screen text-orange-200">
         <header>
           <NavBar />
         </header>
         <main className="py-3 grow">{children}</main>
-        <footer className="text-center text-xs border-t py-3">Footer</footer>
+        <footer className="text-center text-xs border-orange-200 border-t py-3">Footer</footer>
       </body>
     </html>
   );
