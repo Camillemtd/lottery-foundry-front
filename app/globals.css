@@ -25,3 +25,18 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.neon-bar {
+  width: 7px; /* Largeur de la barre */
+  height: 90%; /* Hauteur de la barre */
+  background: linear-gradient(to top,#002fff, #bb00ff,#ff0d00,  #ffd000); /* Gradient de couleur avec des tons chauds */
+  border-radius: 10px; /* Arrondir les bords */
+  box-shadow: 
+  0 0 30px rgba(0, 47, 255, 0.8), /* Bleu */
+  0 0 30px rgba(187, 0, 255, 0.8), /* Violet */
+  0 0 50px rgba(255, 72, 0, 0.8), /* Rose */
+  0 0 50px rgba(255, 234, 0, 0.8); /* Rose */
+  animation: neon-animation 2s ease-in-out infinite alternate;
+}
+
+
