@@ -1,5 +1,6 @@
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
+import '@rainbow-me/rainbowkit/styles.css';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 export default function NavBar() {
   return (
@@ -8,11 +9,7 @@ export default function NavBar() {
         <div className="flex justify-between items-center">
           <div>Logo</div>
           <div className="flex gap-3 items-center">
-            <Button variant="outline">Connect Wallet</Button>
-            <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" />
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
+            <ConnectButton label='Connect Wallet' />
           </div>
         </div>
         <div className="flex gap-3">
