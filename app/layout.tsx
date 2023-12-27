@@ -21,7 +21,7 @@ export default function RootLayout({
         <header>
           <NavBar />
         </header>
-        <main className="py-3 grow">{children}</main>
+        <main className="grow flex">{children}</main>
         <footer className="text-center text-xs border-orange-200 border-t py-3">Footer</footer>
       </body>
     </html>
