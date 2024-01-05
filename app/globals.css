@@ -62,11 +62,11 @@
 
 body {
   background-color: black;
-  
+
 }
 
 
-border-gold {
+.border-gold {
   border-color: #eccbb1;
 }
 
@@ -83,4 +83,10 @@ border-gold {
       0 0 50px rgba(255, 179, 0, 0.8); /* Rose */
   animation: neon-animation 2s ease-in-out infinite alternate;
 }
+
+.max-width{
+  max-width: 1800px;
+}
+
+
 
