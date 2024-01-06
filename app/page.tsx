@@ -11,8 +11,7 @@ import {
 export default function Home() {
   return (
     <div className="w-full class flex items-end max-width">
-      <div className="flex justify-between items-center px-3 h-1/2  w-full bg-black  bg-opacity-50 ">
-        <Neon />
+      <div className="flex justify-center items-center px-3 h-1/2  w-full  ">
         <div className="flex justify-center md:w-2/3 w-4/5 ">
           <Carousel
             opts={{
@@ -42,7 +41,7 @@ export default function Home() {
           </Carousel>
         </div>
 
-        <Neon />
+
       </div>
     </div>
   );
