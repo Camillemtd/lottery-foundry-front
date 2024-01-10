@@ -14,19 +14,22 @@ import {
 	optimism,
 	arbitrum,
 	base,
+  sepolia,
 	zora,
   } from 'wagmi/chains';
 import { publicProvider } from "wagmi/providers/public";
 
 const projectId = process.env.NEXT_PUBLIC_PROJECT_ID as string;
 
+
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [mainnet,
+  sepolia,
 	polygon,
 	optimism,
 	arbitrum,
 	base,
-	zora,],
+	zora],
   [publicProvider()]
 );
 
@@ -35,9 +38,6 @@ const {connectors} = getDefaultWallets({
   projectId,
   chains,
 });
-
-
-
 
 const wagmiConfig = createConfig({
   autoConnect: true,
