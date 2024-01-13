@@ -1,63 +1,54 @@
-"use client";
+'use client';
 
-import React, { ReactNode } from "react";
 import '@rainbow-me/rainbowkit/styles.css';
+import React, { ReactNode } from 'react';
 import {
-  RainbowKitProvider,
   getDefaultWallets,
-  darkTheme 
-} from "@rainbow-me/rainbowkit";
-import { configureChains, createConfig, WagmiConfig } from "wagmi";
+  RainbowKitProvider,
+} from '@rainbow-me/rainbowkit';
+import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import {
-	mainnet,
-	polygon,
-	optimism,
-	arbitrum,
-	base,
-  sepolia,
-	zora,
-  } from 'wagmi/chains';
-import { publicProvider } from "wagmi/providers/public";
+  mainnet,
+  polygon,
+  optimism,
+  arbitrum,
+  base,
+  zora,
+  sepolia
+} from 'wagmi/chains';
+import { publicProvider } from 'wagmi/providers/public';
 
-const projectId = process.env.NEXT_PUBLIC_PROJECT_ID as string;
-
-
-const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [mainnet,
-  sepolia,
-	polygon,
-	optimism,
-	arbitrum,
-	base,
-	zora],
-  [publicProvider()]
+const { chains, publicClient } = configureChains(
+  [mainnet, polygon, optimism, arbitrum, base, zora, sepolia],
+  [
+    publicProvider()
+  ]
 );
 
-const {connectors} = getDefaultWallets({
-  appName: "RainbowKit demo",
-  projectId,
-  chains,
+if (!process.env.NEXT_PUBLIC_PROJECT_ID) {
+  throw new Error("NEXT_PUBLIC_PROJECT_ID is not defined");
+}
+
+const { connectors } = getDefaultWallets({
+  appName: 'Rumble',
+  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+  chains
 });
 
 const wagmiConfig = createConfig({
   autoConnect: true,
-  publicClient,
   connectors,
-  webSocketPublicClient,
-});
+  publicClient
+})
 
 interface ProvidersProps {
-	children: ReactNode;
-  }
+  children: ReactNode;
+}
 
-  const Providers: React.FC<ProvidersProps> = ({ children }) => {
+const Providers: React.FC<ProvidersProps> = ({ children }) => {
   return (
     <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider
-        chains={chains}
-		modalSize="compact"
-		theme={darkTheme()}
-      >
+      <RainbowKitProvider chains={chains}>
         {children}
       </RainbowKitProvider>
     </WagmiConfig>

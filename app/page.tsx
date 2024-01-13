@@ -1,5 +1,8 @@
+'use client';
+import CreateRumble from "@/components/CreateRumble";
 import GameCard from "@/components/GameCard";
-import Neon from "@/components/Neon";
+import ReadContract from "@/components/ReadContract";
+
 import {
   Carousel,
   CarouselContent,
@@ -10,9 +13,10 @@ import {
 
 export default function Home() {
   return (
-    <div className="w-full class flex items-end max-width">
+    <div className="w-full class flex justify-center items-center max-width flex-col">
       <div className="flex justify-center items-center px-3 h-1/2  w-full  ">
-        <div className="flex justify-center md:w-2/3 w-4/5 ">
+        <ReadContract/>
+        {/* <div className="flex justify-center md:w-2/3 w-4/5 ">
           <Carousel
             opts={{
               align: "start",
@@ -39,9 +43,7 @@ export default function Home() {
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
-        </div>
-
-
+        </div> */}
       </div>
     </div>
   );

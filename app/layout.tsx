@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import NavBar from "../components/NavBar";
 import "./globals.css";
-import Providers from "./providers";
 import Background from "../components/Background";
-
+import Providers from "./providers";
+import Menu from "@/components/Menu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,15 +26,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className=" text-orange-200 ">
-      <Background />
+        <Background />
         <Providers>
           <div className="flex flex-col min-h-screen">
             <header>
-            <NavBar />
-          </header>
-          <main className="grow min-h-full flex justify-center">{children}</main>
+              <NavBar />
+              <Menu />
+            </header>
+            <main className="grow min-h-full flex justify-center ml-20">
+              {children}
+            </main>
           </div>
-          
         </Providers>
       </body>
     </html>
