@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
-export default function GameCard() {
+export default function GameCard({id}: {id: number}) {
+  
   return (
     <div className="flex flex-col justify-center items-center border-y-4 rounded-xl border-orange-200 gap-3 h-full ">
       <div className="w-full">

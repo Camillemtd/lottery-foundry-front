@@ -1,49 +1,29 @@
-'use client';
-import CreateRumble from "@/components/CreateRumble";
-import GameCard from "@/components/GameCard";
+"use client";
+import React, { useEffect } from "react";
 import ReadContract from "@/components/ReadContract";
+import useReadContract from "../hooks/useReadContract"; 
+import CarouselRumble from "@/components/CarouselRumble";
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 
 export default function Home() {
+  const { data, loading, error, execute } = useReadContract();
+
+  useEffect(() => {
+    execute("getActiveRumbleIds");
+  }, [execute]);
+
+  // Transformer la data en un format compatible avec CarouselRumble
+  const transformedData = {
+    ids: data ? data.map((id: bigint) => Number(id)) : []
+  };
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
   return (
     <div className="w-full class flex justify-center items-center max-width flex-col">
       <div className="flex justify-center items-center px-3 h-1/2  w-full  ">
-        <ReadContract/>
-        {/* <div className="flex justify-center md:w-2/3 w-4/5 ">
-          <Carousel
-            opts={{
-              align: "start",
-            }}
-            className="w-2/3 md:w-full"
-          >
-            <CarouselContent>
-              <CarouselItem className="md:basis-1/3 lg:basis-1/4">
-                <GameCard />
-              </CarouselItem>
-              <CarouselItem className="md:basis-1/3 lg:basis-1/4">
-                <GameCard />
-              </CarouselItem>
-              <CarouselItem className="md:basis-1/3 lg:basis-1/4">
-                <GameCard />
-              </CarouselItem>
-              <CarouselItem className="md:basis-1/3 lg:basis-1/4">
-                <GameCard />
-              </CarouselItem>
-              <CarouselItem className="md:basis-1/3 lg:basis-1/4">
-                <GameCard />
-              </CarouselItem>
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-        </div> */}
+        <CarouselRumble data={transformedData} />
       </div>
     </div>
   );
