@@ -31,9 +31,8 @@ export default function RootLayout({
           <div className="flex flex-col min-h-screen">
             <header>
               <NavBar />
-              {/* <Menu /> */}
             </header>
-            <main className="grow min-h-full flex justify-center p-10">
+            <main className="grow min-h-full flex justify-center md:p-10">
               {children}
             </main>
           </div>

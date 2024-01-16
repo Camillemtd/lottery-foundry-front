@@ -12,21 +12,18 @@ import GameCard from "./GameCard";
 	  ids: number[];
 	};
   }
-  
-  
  
 export default function CarouselRumble({data}: CarouselRumbleProps) {
-	console.log(data);
 	
 	return (
 		<Carousel
 		opts={{
 		  align: "start",
 		}}
-		className="w-2/3 md:w-full"
+		className="w-full md:w-auto flex justify-center items-center"
 	  >
-		<CarouselContent>
-			{data.ids.map((id, index) => (
+		<CarouselContent className="w-full flex justify-center">
+			{data.ids.map((id) => (
 				<CarouselItem className="md:basis-1/3 lg:basis-1/4" key={id}>
 					<GameCard id={id}/>
 				</CarouselItem>

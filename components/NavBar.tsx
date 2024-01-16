@@ -2,7 +2,7 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDragon } from "@fortawesome/free-solid-svg-icons";
-
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 export default function NavBar() {
   return (
@@ -13,13 +13,26 @@ export default function NavBar() {
             RUMBLEZOUMA
           </Link>
           <div className="flex gap-3 items-center">
-            <ConnectButton />
-            <Link
+            <ConnectButton
+              accountStatus={{
+                smallScreen: "avatar",
+                largeScreen: "full",
+              }}
+              showBalance={{
+                smallScreen: false,
+                largeScreen: true,
+              }}
+            />
+            <div className="w-10 p-2 bg-slate-500 bg-opacity-30">
+              <FontAwesomeIcon icon={faBars} className="text-white w-full"/>
+            </div>
+          
+            {/* <Link
               href={"/admin"}
-              className="border-b border-slate-600 flex items-center justify-center py-5 "
+              className="flex items-center justify-center py-5 "
             >
               <FontAwesomeIcon icon={faDragon} className="text-white w-5" />
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

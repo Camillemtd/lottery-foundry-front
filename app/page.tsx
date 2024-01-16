@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect } from "react";
-import ReadContract from "@/components/ReadContract";
 import useReadContract from "../hooks/useReadContract"; 
 import CarouselRumble from "@/components/CarouselRumble";
 
@@ -22,7 +21,7 @@ export default function Home() {
 
   return (
     <div className="w-full class flex justify-center items-center max-width flex-col">
-      <div className="flex justify-center items-center px-3 h-1/2  w-full  ">
+      <div className="flex justify-center items-center px-3 h-1/2  w-2/3  ">
         <CarouselRumble data={transformedData} />
       </div>
     </div>
