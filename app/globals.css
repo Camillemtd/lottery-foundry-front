@@ -1,11 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
 
 @layer base {
   :root {
-    --background: 26.4 60.8% 81.0%;
+    --background: 26.4 60.8% 81%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -22,7 +21,7 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
-    --input: 26.4 60.8% 81.0%;
+    --input: 26.4 60.8% 81%;
     --ring: 222.2 84% 4.9%;
     --radius: 0.5rem;
   }
@@ -50,7 +49,6 @@
   }
 }
 
- 
 @layer base {
   * {
     @apply border-border;
@@ -62,9 +60,7 @@
 
 body {
   background-color: black;
-
 }
-
 
 .bg-gold {
   background-color: #eccbb1;
@@ -73,20 +69,49 @@ body {
 .neon-bar {
   width: 6px; /* Largeur de la barre */
   height: 90%; /* Hauteur de la barre */
-  background: linear-gradient(to top, #002fff, #ff00a2,#ffbf00 ); /* Gradient de couleur */
+  background: linear-gradient(
+    to top,
+    #002fff,
+    #ff00a2,
+    #ffbf00
+  ); /* Gradient de couleur */
   border-radius: 10px; /* Arrondir les bords */
-  box-shadow: 
-      0 0 8px rgba(0, 47, 255, 0.8), /* Bleu */
-      0 0 20px rgba(255, 0, 157, 0.8), /* Violet */
-      0 0 30px rgba(255, 0, 166, 0.8), /* Violet */
-      0 0 40px rgba(255, 174, 0, 0.8), /* Rose */
-      0 0 50px rgba(255, 179, 0, 0.8); /* Rose */
+  box-shadow: 0 0 8px rgba(0, 47, 255, 0.8),
+    /* Bleu */ 0 0 20px rgba(255, 0, 157, 0.8),
+    /* Violet */ 0 0 30px rgba(255, 0, 166, 0.8),
+    /* Violet */ 0 0 40px rgba(255, 174, 0, 0.8),
+    /* Rose */ 0 0 50px rgba(255, 179, 0, 0.8); /* Rose */
   animation: neon-animation 2s ease-in-out infinite alternate;
 }
 
-.max-width{
+.max-width {
   max-width: 1800px;
 }
 
+/* Animation */
 
+.slide-in-right {
+  animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
 
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(1000px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slide-out-right {
+  animation: slide-out-right 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@keyframes slide-out-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(2000px);
+  }
+}
