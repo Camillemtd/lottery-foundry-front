@@ -24,7 +24,6 @@ function useReadContract(): UseReadContractReturn {
         args,
       });
       setData(result);
-      console.log(result);
     } catch (err: any) {
       setError(err);
       console.error("Error reading contract:", err);
